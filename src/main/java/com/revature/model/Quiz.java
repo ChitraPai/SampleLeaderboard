@@ -30,7 +30,7 @@ public class Quiz {
 	@Column(name = "MAX_ATTEMPTS")
 	private Integer maxAttempts = 1;
 	@Column(name = "IS_ANSWER_DISPLAY")
-	private Boolean isAnswerDisplay=false;
+	private Boolean isAnswerDisplay = false;
 	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 

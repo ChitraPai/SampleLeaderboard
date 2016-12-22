@@ -12,20 +12,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "student_courses", uniqueConstraints = { @UniqueConstraint(columnNames = { "COURSE_ID", "STUDENT_ID" }) })
-public class StudentCourse {
+@Table(name = "student_project_sprints")
+public class StudentProjectSprint {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@ManyToOne()
-	@JoinColumn(name = "COURSE_ID")
-	private Course courseId;
-	@ManyToOne()
-	@JoinColumn(name = "STUDENT_ID")
-	private Student studentId;
+	@ManyToOne
+	@JoinColumn(name = "STUDENT_PROJECT_ID")
+	private StudentProject studentProjectId;
+	@ManyToOne
+	@JoinColumn(name = "PROJECT_SPRINT_ID")
+	private ProjectSprint projectSprintId;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
 	private Date startedOn;
@@ -44,20 +43,20 @@ public class StudentCourse {
 		this.id = id;
 	}
 
-	public Course getCourseId() {
-		return courseId;
+	public StudentProject getStudentProjectId() {
+		return studentProjectId;
 	}
 
-	public void setCourseId(Course courseId) {
-		this.courseId = courseId;
+	public void setStudentProjectId(StudentProject studentProjectId) {
+		this.studentProjectId = studentProjectId;
 	}
 
-	public Student getStudentId() {
-		return studentId;
+	public ProjectSprint getProjectSprintId() {
+		return projectSprintId;
 	}
 
-	public void setStudentId(Student studentId) {
-		this.studentId = studentId;
+	public void setProjectSprintId(ProjectSprint projectSprintId) {
+		this.projectSprintId = projectSprintId;
 	}
 
 	public Date getStartedOn() {

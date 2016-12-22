@@ -1,5 +1,7 @@
 package com.revature.model;
 
+
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,17 +17,19 @@ import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "student_courses", uniqueConstraints = { @UniqueConstraint(columnNames = { "COURSE_ID", "STUDENT_ID" }) })
-public class StudentCourse {
+@Table(name = "student_project_sprint_activities", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "STUDENT_PROJECT_SPRINT_ID", "PROJECT_SPRINT_ACTIVITY_ID" }) })
+
+public class StudentProjectSprintActivity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@ManyToOne()
-	@JoinColumn(name = "COURSE_ID")
-	private Course courseId;
-	@ManyToOne()
-	@JoinColumn(name = "STUDENT_ID")
-	private Student studentId;
+	@ManyToOne
+	@JoinColumn(name = "STUDENT_PROJECT_SPRINT_ID")
+	private StudentProjectSprint studentProjectSprintId;
+	@ManyToOne
+	@JoinColumn(name = "PROJECT_SPRINT_ACTIVITY_ID")
+	private ProjectSprintActivity projectSprintActivityId;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
 	private Date startedOn;
@@ -44,20 +48,20 @@ public class StudentCourse {
 		this.id = id;
 	}
 
-	public Course getCourseId() {
-		return courseId;
+	public StudentProjectSprint getStudentProjectSprintId() {
+		return studentProjectSprintId;
 	}
 
-	public void setCourseId(Course courseId) {
-		this.courseId = courseId;
+	public void setStudentProjectSprintId(StudentProjectSprint studentProjectSprintId) {
+		this.studentProjectSprintId = studentProjectSprintId;
 	}
 
-	public Student getStudentId() {
-		return studentId;
+	public ProjectSprintActivity getProjectSprintActivityId() {
+		return projectSprintActivityId;
 	}
 
-	public void setStudentId(Student studentId) {
-		this.studentId = studentId;
+	public void setProjectSprintActivityId(ProjectSprintActivity projectSprintActivityId) {
+		this.projectSprintActivityId = projectSprintActivityId;
 	}
 
 	public Date getStartedOn() {

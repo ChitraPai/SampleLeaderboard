@@ -10,38 +10,36 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "categories")
 public class Category {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer id;
-  @Column(unique=true)
-  private String name;
-  @Column(name = "IS_ACTIVE")
-  private Boolean isActive=true;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	@Column(unique = true)
+	private String name;
+	@Column(name = "IS_ACTIVE")
+	private Boolean isActive = true;
 
-  public Integer getId() {
-    return id;
-  }
+	public Integer getId() {
+		return id;
+	}
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-  public String getName() {
-    return name;
-  }
+	public String getName() {
+		return name;
+	}
 
-  public void setName(String name) {
-    this.name = name;
-  }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-  public Boolean getIsActive() {
-    return isActive;
-  }
+	public Boolean getIsActive() {
+		return isActive;
+	}
 
-  public void setIsActive(Boolean isActive) {
-    this.isActive = isActive;
-  }
-
-
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
 
 }

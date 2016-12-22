@@ -35,39 +35,51 @@ public class StudentProject {
 	@ManyToOne
 	@JoinColumn(name = "STATUS_ID")
 	private SeedStatus statusId;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public Student getStudentId() {
 		return studentId;
 	}
+
 	public void setStudentId(Student studentId) {
 		this.studentId = studentId;
 	}
+
 	public Project getProjectId() {
 		return projectId;
 	}
+
 	public void setProjectId(Project projectId) {
 		this.projectId = projectId;
 	}
+
 	public Time getStartedOn() {
 		return startedOn;
 	}
+
 	public void setStartedOn(Time startedOn) {
 		this.startedOn = startedOn;
 	}
+
 	public Time getCompletedOn() {
 		return completedOn;
 	}
+
 	public void setCompletedOn(Time completedOn) {
 		this.completedOn = completedOn;
 	}
+
 	public SeedStatus getStatusId() {
 		return statusId;
 	}
+
 	public void setStatusId(SeedStatus statusId) {
 		this.statusId = statusId;
 	}

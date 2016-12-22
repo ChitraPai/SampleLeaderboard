@@ -38,58 +38,76 @@ public class ProjectSprintActivity {
 	private String offlineActivity;
 	private String name;
 	@Column(name = "IS_ACTIVE")
-	private Boolean isActive=true;
+	private Boolean isActive = true;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public ProjectSprint getProjectSprintId() {
 		return projectSprintId;
 	}
+
 	public void setProjectSprintId(ProjectSprint projectSprintId) {
 		this.projectSprintId = projectSprintId;
 	}
+
 	public Video getVideoId() {
 		return videoId;
 	}
+
 	public void setVideoId(Video videoId) {
 		this.videoId = videoId;
 	}
+
 	public Course getCourseId() {
 		return courseId;
 	}
+
 	public void setCourseId(Course courseId) {
 		this.courseId = courseId;
 	}
+
 	public Quiz getQuizId() {
 		return quizId;
 	}
+
 	public void setQuizId(Quiz quizId) {
 		this.quizId = quizId;
 	}
+
 	public String getOnlineActivity() {
 		return onlineActivity;
 	}
+
 	public void setOnlineActivity(String onlineActivity) {
 		this.onlineActivity = onlineActivity;
 	}
+
 	public String getOfflineActivity() {
 		return offlineActivity;
 	}
+
 	public void setOfflineActivity(String offlineActivity) {
 		this.offlineActivity = offlineActivity;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Boolean getIsActive() {
 		return isActive;
 	}
+
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
