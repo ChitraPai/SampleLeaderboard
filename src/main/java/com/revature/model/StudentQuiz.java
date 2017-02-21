@@ -1,6 +1,6 @@
 package com.revature.model;
 
-import java.util.Date;
+import java.sql.Time;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,64 +12,75 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
+
 @Entity
-@Table(name = "student_courses",uniqueConstraints = {
-	    @UniqueConstraint(columnNames={"COURSE_ID", "STUDENT_ID"})})
-public class StudentCourse {
+@Table(name = "student_quizes")
+public class StudentQuiz {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@ManyToOne()
-	@JoinColumn(name = "COURSE_ID")
-	private Course courseId;
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name = "STUDENT_ID")
 	private Student studentId;
-	 @Column(name = "STARTED_ON")
-	  @Temporal(TemporalType.DATE)
-	 private Date startedOn;
-	  @Column(name ="COMPLETED_ON")
-	  @Temporal(TemporalType.DATE)
-	 private Date completedOn;
-	  @ManyToOne
-	    @JoinColumn(name = "STATUS_ID")
-	  private SeedStatus statusId;
+	@ManyToOne
+	@JoinColumn(name = "QUIZ_ID")
+	private Quiz quizId;
+	@Column(name = "STARTED_ON")
+	@Temporal(TemporalType.TIME)
+	private Time startedOn;
+	@Column(name = "COMPLETED_ON")
+	@Temporal(TemporalType.TIME)
+	private Time completedOn;
+	@ManyToOne
+	@JoinColumn(name = "STATUS_ID")
+	private SeedStatus statusId;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Course getCourseId() {
-		return courseId;
-	}
-	public void setCourseId(Course courseId) {
-		this.courseId = courseId;
-	}
+
 	public Student getStudentId() {
 		return studentId;
 	}
+
 	public void setStudentId(Student studentId) {
 		this.studentId = studentId;
 	}
-	public Date getStartedOn() {
+
+	public Quiz getQuizId() {
+		return quizId;
+	}
+
+	public void setQuizId(Quiz quizId) {
+		this.quizId = quizId;
+	}
+
+	public Time getStartedOn() {
 		return startedOn;
 	}
-	public void setStartedOn(Date startedOn) {
+
+	public void setStartedOn(Time startedOn) {
 		this.startedOn = startedOn;
 	}
-	public Date getCompletedOn() {
+
+	public Time getCompletedOn() {
 		return completedOn;
 	}
-	public void setCompletedOn(Date completedOn) {
+
+	public void setCompletedOn(Time completedOn) {
 		this.completedOn = completedOn;
 	}
+
 	public SeedStatus getStatusId() {
 		return statusId;
 	}
+
 	public void setStatusId(SeedStatus statusId) {
 		this.statusId = statusId;
 	}
-	  
+
 }
