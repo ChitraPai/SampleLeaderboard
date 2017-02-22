@@ -18,15 +18,20 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "student_course_contents", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "STUDENT_COURSE_ID", "COURSE_CONTENT_ID" }) })
 public class StudentCourseContent {
+
+	public StudentCourseContent() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "STUDENT_COURSE_ID", nullable = false)
-	private StudentCourse sudentCourseId;
+	private StudentCourse sudentCourse;
 	@ManyToOne()
 	@JoinColumn(name = "COURSE_CONTENT_ID", nullable = false)
-	private CourseContent courseContentId;
+	private CourseContent courseContent;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
 	private Date startedOn;
@@ -34,8 +39,8 @@ public class StudentCourseContent {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID", nullable = false)
-	private SeedStatus statusId;
+	@JoinColumn(name = "STATUS_ID")
+	private SeedStatus status;
 
 	public Integer getId() {
 		return id;
@@ -45,20 +50,20 @@ public class StudentCourseContent {
 		this.id = id;
 	}
 
-	public StudentCourse getSudentCourseId() {
-		return sudentCourseId;
+	public StudentCourse getSudentCourse() {
+		return sudentCourse;
 	}
 
-	public void setSudentCourseId(StudentCourse sudentCourseId) {
-		this.sudentCourseId = sudentCourseId;
+	public void setSudentCourse(StudentCourse sudentCourse) {
+		this.sudentCourse = sudentCourse;
 	}
 
-	public CourseContent getCourseContentId() {
-		return courseContentId;
+	public CourseContent getCourseContent() {
+		return courseContent;
 	}
 
-	public void setCourseContentId(CourseContent courseContentId) {
-		this.courseContentId = courseContentId;
+	public void setCourseContent(CourseContent courseContent) {
+		this.courseContent = courseContent;
 	}
 
 	public Date getStartedOn() {
@@ -77,11 +82,12 @@ public class StudentCourseContent {
 		this.completedOn = completedOn;
 	}
 
-	public SeedStatus getStatusId() {
-		return statusId;
+	public SeedStatus getStatus() {
+		return status;
 	}
 
-	public void setStatusId(SeedStatus statusId) {
-		this.statusId = statusId;
+	public void setStatus(SeedStatus status) {
+		this.status = status;
 	}
+
 }

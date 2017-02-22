@@ -19,15 +19,19 @@ import javax.persistence.UniqueConstraint;
 		@UniqueConstraint(columnNames = { "STUDENT_PROJECT_SPRINT_ID", "PROJECT_SPRINT_ACTIVITY_ID" }) })
 
 public class StudentProjectSprintActivity {
+
+	public StudentProjectSprintActivity() {
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_PROJECT_SPRINT_ID", nullable = false)
-	private StudentProjectSprint studentProjectSprintId;
+	private StudentProjectSprint studentProjectSprint;
 	@ManyToOne
 	@JoinColumn(name = "PROJECT_SPRINT_ACTIVITY_ID", nullable = false)
-	private ProjectSprintActivity projectSprintActivityId;
+	private ProjectSprintActivity projectSprintActivity;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
 	private Date startedOn;
@@ -35,7 +39,7 @@ public class StudentProjectSprintActivity {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID", nullable = false)
+	@JoinColumn(name = "STATUS_ID")
 	private SeedStatus statusId;
 
 	public Integer getId() {
@@ -46,20 +50,20 @@ public class StudentProjectSprintActivity {
 		this.id = id;
 	}
 
-	public StudentProjectSprint getStudentProjectSprintId() {
-		return studentProjectSprintId;
+	public StudentProjectSprint getStudentProjectSprint() {
+		return studentProjectSprint;
 	}
 
-	public void setStudentProjectSprintId(StudentProjectSprint studentProjectSprintId) {
-		this.studentProjectSprintId = studentProjectSprintId;
+	public void setStudentProjectSprint(StudentProjectSprint studentProjectSprint) {
+		this.studentProjectSprint = studentProjectSprint;
 	}
 
-	public ProjectSprintActivity getProjectSprintActivityId() {
-		return projectSprintActivityId;
+	public ProjectSprintActivity getProjectSprintActivity() {
+		return projectSprintActivity;
 	}
 
-	public void setProjectSprintActivityId(ProjectSprintActivity projectSprintActivityId) {
-		this.projectSprintActivityId = projectSprintActivityId;
+	public void setProjectSprintActivity(ProjectSprintActivity projectSprintActivity) {
+		this.projectSprintActivity = projectSprintActivity;
 	}
 
 	public Date getStartedOn() {

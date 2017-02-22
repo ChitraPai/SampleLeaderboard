@@ -10,12 +10,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "levels")
 public class Level {
+	public Level() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@Column(unique = true, nullable = false)
 	private String name;
-	@Column(name = "IS_ACTIVE", nullable = false)
+	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 
 	public Integer getId() {

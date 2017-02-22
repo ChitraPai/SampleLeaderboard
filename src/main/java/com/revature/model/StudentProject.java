@@ -1,5 +1,7 @@
 package com.revature.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,15 +21,19 @@ import org.apache.tomcat.jni.Time;
 		@UniqueConstraint(columnNames = { "STUDENT_ID", "PROJECT_ID" }) })
 
 public class StudentProject {
+	public StudentProject() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_ID", nullable = false)
-	private Student studentId;
+	private Student student;
 	@ManyToOne
 	@JoinColumn(name = "PROJECT_ID", nullable = false)
-	private Project projectId;
+	private List<Project> project;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.TIME)
 	private Time startedOn;
@@ -35,8 +41,8 @@ public class StudentProject {
 	@Temporal(TemporalType.TIME)
 	private Time completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID", nullable = false)
-	private SeedStatus statusId;
+	@JoinColumn(name = "STATUS_ID")
+	private SeedStatus status;
 
 	public Integer getId() {
 		return id;
@@ -46,20 +52,20 @@ public class StudentProject {
 		this.id = id;
 	}
 
-	public Student getStudentId() {
-		return studentId;
+	public Student getStudent() {
+		return student;
 	}
 
-	public void setStudentId(Student studentId) {
-		this.studentId = studentId;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
-	public Project getProjectId() {
-		return projectId;
+	public List<Project> getProject() {
+		return project;
 	}
 
-	public void setProjectId(Project projectId) {
-		this.projectId = projectId;
+	public void setProject(List<Project> project) {
+		this.project = project;
 	}
 
 	public Time getStartedOn() {
@@ -78,11 +84,12 @@ public class StudentProject {
 		this.completedOn = completedOn;
 	}
 
-	public SeedStatus getStatusId() {
-		return statusId;
+	public SeedStatus getStatus() {
+		return status;
 	}
 
-	public void setStatusId(SeedStatus statusId) {
-		this.statusId = statusId;
+	public void setStatus(SeedStatus status) {
+		this.status = status;
 	}
+
 }

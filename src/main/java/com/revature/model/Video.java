@@ -10,6 +10,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "videos")
 public class Video {
+
+	public Video() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -19,7 +24,7 @@ public class Video {
 	private String url;
 	@Column(name = "TRANSCRIPT_TEXT", nullable = false)
 	private String transcriptText;
-	@Column(name = "IS_ACTIVE", nullable = false)
+	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 
 	public Integer getId() {

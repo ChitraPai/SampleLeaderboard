@@ -14,17 +14,22 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "student_audit_details")
 public class StudentAuditDetails {
+
+	public StudentAuditDetails() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_ID", nullable = false)
-	private Student studentId;
+	private Student student;
 	@Column(name = "LOGIN_ACTIVITY", nullable = false)
 	private String loginActivity;
 	@Column(name = "ACTIVITY_TIMESTAMP", nullable = false)
 	private Timestamp activityTimestamp;
-	@Column(name = "IS_SUCCESS", nullable = false)
+	@Column(name = "IS_SUCCESS")
 	private Boolean isSuccess = true;
 
 	public Integer getId() {
@@ -35,12 +40,12 @@ public class StudentAuditDetails {
 		this.id = id;
 	}
 
-	public Student getStudentId() {
-		return studentId;
+	public Student getStudent() {
+		return student;
 	}
 
-	public void setStudentId(Student studentId) {
-		this.studentId = studentId;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 	public String getLoginActivity() {
@@ -59,11 +64,12 @@ public class StudentAuditDetails {
 		this.activityTimestamp = activityTimestamp;
 	}
 
-	public Boolean getIsActive() {
+	public Boolean getIsSuccess() {
 		return isSuccess;
 	}
 
-	public void setIsActive(Boolean isActive) {
-		this.isSuccess = isActive;
+	public void setIsSuccess(Boolean isSuccess) {
+		this.isSuccess = isSuccess;
 	}
+
 }

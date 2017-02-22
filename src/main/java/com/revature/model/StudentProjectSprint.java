@@ -16,15 +16,20 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "student_project_sprints")
 public class StudentProjectSprint {
+
+	public StudentProjectSprint() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_PROJECT_ID", nullable = false)
-	private StudentProject studentProjectId;
+	private StudentProject studentProject;
 	@ManyToOne
 	@JoinColumn(name = "PROJECT_SPRINT_ID", nullable = false)
-	private ProjectSprint projectSprintId;
+	private ProjectSprint projectSprint;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
 	private Date startedOn;
@@ -32,8 +37,8 @@ public class StudentProjectSprint {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID", nullable = false)
-	private SeedStatus statusId;
+	@JoinColumn(name = "STATUS_ID")
+	private SeedStatus status;
 
 	public Integer getId() {
 		return id;
@@ -43,20 +48,20 @@ public class StudentProjectSprint {
 		this.id = id;
 	}
 
-	public StudentProject getStudentProjectId() {
-		return studentProjectId;
+	public StudentProject getStudentProject() {
+		return studentProject;
 	}
 
-	public void setStudentProjectId(StudentProject studentProjectId) {
-		this.studentProjectId = studentProjectId;
+	public void setStudentProject(StudentProject studentProject) {
+		this.studentProject = studentProject;
 	}
 
-	public ProjectSprint getProjectSprintId() {
-		return projectSprintId;
+	public ProjectSprint getProjectSprint() {
+		return projectSprint;
 	}
 
-	public void setProjectSprintId(ProjectSprint projectSprintId) {
-		this.projectSprintId = projectSprintId;
+	public void setProjectSprint(ProjectSprint projectSprint) {
+		this.projectSprint = projectSprint;
 	}
 
 	public Date getStartedOn() {
@@ -75,12 +80,12 @@ public class StudentProjectSprint {
 		this.completedOn = completedOn;
 	}
 
-	public SeedStatus getStatusId() {
-		return statusId;
+	public SeedStatus getStatus() {
+		return status;
 	}
 
-	public void setStatusId(SeedStatus statusId) {
-		this.statusId = statusId;
+	public void setStatus(SeedStatus status) {
+		this.status = status;
 	}
 
 }

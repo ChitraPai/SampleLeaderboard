@@ -1,6 +1,7 @@
 package com.revature.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,15 +18,20 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "student_courses", uniqueConstraints = { @UniqueConstraint(columnNames = { "COURSE_ID", "STUDENT_ID" }) })
 public class StudentCourse {
+
+	public StudentCourse() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "COURSE_ID", nullable = false)
-	private Course courseId;
+	private List<Course> course;
 	@ManyToOne()
 	@JoinColumn(name = "STUDENT_ID", nullable = false)
-	private Student studentId;
+	private Student student;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
 	private Date startedOn;
@@ -33,8 +39,8 @@ public class StudentCourse {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID", nullable = false)
-	private SeedStatus statusId;
+	@JoinColumn(name = "STATUS_ID")
+	private SeedStatus status;
 
 	public Integer getId() {
 		return id;
@@ -44,20 +50,20 @@ public class StudentCourse {
 		this.id = id;
 	}
 
-	public Course getCourseId() {
-		return courseId;
+	public List<Course> getCourse() {
+		return course;
 	}
 
-	public void setCourseId(Course courseId) {
-		this.courseId = courseId;
+	public void setCourse(List<Course> course) {
+		this.course = course;
 	}
 
-	public Student getStudentId() {
-		return studentId;
+	public Student getStudent() {
+		return student;
 	}
 
-	public void setStudentId(Student studentId) {
-		this.studentId = studentId;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 	public Date getStartedOn() {
@@ -76,12 +82,12 @@ public class StudentCourse {
 		this.completedOn = completedOn;
 	}
 
-	public SeedStatus getStatusId() {
-		return statusId;
+	public SeedStatus getStatus() {
+		return status;
 	}
 
-	public void setStatusId(SeedStatus statusId) {
-		this.statusId = statusId;
+	public void setStatus(SeedStatus status) {
+		this.status = status;
 	}
 
 }

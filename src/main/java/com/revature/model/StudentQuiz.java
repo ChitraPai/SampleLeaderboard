@@ -1,5 +1,7 @@
 package com.revature.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,15 +18,20 @@ import org.apache.tomcat.jni.Time;
 @Entity
 @Table(name = "student_quizes")
 public class StudentQuiz {
+
+	public StudentQuiz() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_ID", nullable = false)
-	private Student studentId;
+	private Student student;
 	@ManyToOne
 	@JoinColumn(name = "QUIZ_ID", nullable = false)
-	private Quiz quizId;
+	private List<Quiz> quiz;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.TIME)
 	private Time startedOn;
@@ -34,8 +41,8 @@ public class StudentQuiz {
 	@Column(nullable = false)
 	private Integer score;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID", nullable = false)
-	private SeedStatus statusId;
+	@JoinColumn(name = "STATUS_ID")
+	private SeedStatus status;
 
 	public Integer getId() {
 		return id;
@@ -45,20 +52,20 @@ public class StudentQuiz {
 		this.id = id;
 	}
 
-	public Student getStudentId() {
-		return studentId;
+	public Student getStudent() {
+		return student;
 	}
 
-	public void setStudentId(Student studentId) {
-		this.studentId = studentId;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
-	public Quiz getQuizId() {
-		return quizId;
+	public List<Quiz> getQuiz() {
+		return quiz;
 	}
 
-	public void setQuizId(Quiz quizId) {
-		this.quizId = quizId;
+	public void setQuiz(List<Quiz> quiz) {
+		this.quiz = quiz;
 	}
 
 	public Time getStartedOn() {
@@ -85,12 +92,12 @@ public class StudentQuiz {
 		this.score = score;
 	}
 
-	public SeedStatus getStatusId() {
-		return statusId;
+	public SeedStatus getStatus() {
+		return status;
 	}
 
-	public void setStatusId(SeedStatus statusId) {
-		this.statusId = statusId;
+	public void setStatus(SeedStatus status) {
+		this.status = status;
 	}
 
 }

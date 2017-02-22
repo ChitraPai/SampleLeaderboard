@@ -18,110 +18,88 @@ import javax.persistence.UniqueConstraint;
 		@UniqueConstraint(columnNames = { "PROJECT_SPRINT_ID", "ONLINE_ACTIVITY" }),
 		@UniqueConstraint(columnNames = { "PROJECT_SPRINT_ID", "OFFLINE_ACTIVITY" }) })
 public class ProjectSprintActivity {
+
+	public ProjectSprintActivity() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "PROJECT_SPRINT_ID", nullable = false)
-	private ProjectSprint projectSprintId;
+	private ProjectSprint projectSprint;
 	@ManyToOne()
 	@JoinColumn(name = "VIDEO_ID")
-	private Video videoId;
+	private Video video;
 	@ManyToOne()
 	@JoinColumn(name = "COURSE_ID")
-	private Course courseId;
+	private Course course;
 	@ManyToOne()
 	@JoinColumn(name = "QUIZ_ID")
-	private Quiz quizId;
+	private Quiz quiz;
 	@Column(name = "ONLINE_ACTIVITY")
 	private String onlineActivity;
 	@Column(name = "OFFLINE_ACTIVITY")
 	private String offlineActivity;
 	@Column(nullable = false)
 	private String name;
-	@Column(name = "DURATION_IN_MINUTES")
-	private Integer durationInMinutes;
 	@Column(name = "SKILL_POINTS", nullable = false)
 	private Integer skillPoints;
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public ProjectSprint getProjectSprintId() {
-		return projectSprintId;
+	public ProjectSprint getProjectSprint() {
+		return projectSprint;
 	}
-
-	public void setProjectSprintId(ProjectSprint projectSprintId) {
-		this.projectSprintId = projectSprintId;
+	public void setProjectSprint(ProjectSprint projectSprint) {
+		this.projectSprint = projectSprint;
 	}
-
-	public Video getVideoId() {
-		return videoId;
+	public Video getVideo() {
+		return video;
 	}
-
-	public void setVideoId(Video videoId) {
-		this.videoId = videoId;
+	public void setVideo(Video video) {
+		this.video = video;
 	}
-
-	public Course getCourseId() {
-		return courseId;
+	public Course getCourse() {
+		return course;
 	}
-
-	public void setCourseId(Course courseId) {
-		this.courseId = courseId;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
-
-	public Quiz getQuizId() {
-		return quizId;
+	public Quiz getQuiz() {
+		return quiz;
 	}
-
-	public void setQuizId(Quiz quizId) {
-		this.quizId = quizId;
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
 	}
-
 	public String getOnlineActivity() {
 		return onlineActivity;
 	}
-
 	public void setOnlineActivity(String onlineActivity) {
 		this.onlineActivity = onlineActivity;
 	}
-
 	public String getOfflineActivity() {
 		return offlineActivity;
 	}
-
 	public void setOfflineActivity(String offlineActivity) {
 		this.offlineActivity = offlineActivity;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public Integer getDurationInMinutes() {
-		return durationInMinutes;
-	}
-
-	public void setDurationInMinutes(Integer durationInMinutes) {
-		this.durationInMinutes = durationInMinutes;
-	}
-
 	public Integer getSkillPoints() {
 		return skillPoints;
 	}
-
 	public void setSkillPoints(Integer skillPoints) {
 		this.skillPoints = skillPoints;
 	}
 
+	
 }

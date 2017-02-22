@@ -14,46 +14,45 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "project_sprints", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "PROJECT_ID", "SPRINT_NAME" }) })
 public class ProjectSprint {
+
+	public ProjectSprint() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "PROJECT_ID", nullable = false)
-	private Project projectId;
+	private Project project;
 	@Column(name = "SPRINT_NAME", nullable = false)
 	private String sprintName;
-	@Column(name = "IS_ACTIVE", nullable = false)
+	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public Project getProjectId() {
-		return projectId;
+	public Project getProject() {
+		return project;
 	}
-
-	public void setProjectId(Project projectId) {
-		this.projectId = projectId;
+	public void setProject(Project project) {
+		this.project = project;
 	}
-
 	public String getSprintName() {
 		return sprintName;
 	}
-
 	public void setSprintName(String sprintName) {
 		this.sprintName = sprintName;
 	}
-
 	public Boolean getIsActive() {
 		return isActive;
 	}
-
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
+
+	
 }
