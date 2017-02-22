@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student_projects")
+@Table(name = "student_audit_details")
 public class StudentAuditDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +25,7 @@ public class StudentAuditDetails {
 	@Column(name = "ACTIVITY_TIMESTAMP", nullable = false)
 	private Timestamp activityTimestamp;
 	@Column(name = "IS_SUCCESS", nullable = false)
-	private Boolean isActive = true;
+	private Boolean isSuccess = true;
 
 	public Integer getId() {
 		return id;
@@ -60,10 +60,10 @@ public class StudentAuditDetails {
 	}
 
 	public Boolean getIsActive() {
-		return isActive;
+		return isSuccess;
 	}
 
 	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+		this.isSuccess = isActive;
 	}
 }

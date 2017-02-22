@@ -1,3 +1,4 @@
+
 package com.revature.model;
 
 import javax.persistence.Column;
