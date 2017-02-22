@@ -1,7 +1,5 @@
 package com.revature.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +31,7 @@ public class StudentProject {
 	private Student student;
 	@ManyToOne
 	@JoinColumn(name = "PROJECT_ID", nullable = false)
-	private List<Project> project;
+	private Project project;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.TIME)
 	private Time startedOn;
@@ -60,11 +58,11 @@ public class StudentProject {
 		this.student = student;
 	}
 
-	public List<Project> getProject() {
+	public Project getProject() {
 		return project;
 	}
 
-	public void setProject(List<Project> project) {
+	public void setProject(Project project) {
 		this.project = project;
 	}
 

@@ -1,7 +1,6 @@
 package com.revature.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +27,7 @@ public class StudentCourse {
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "COURSE_ID", nullable = false)
-	private List<Course> course;
+	private Course course;
 	@ManyToOne()
 	@JoinColumn(name = "STUDENT_ID", nullable = false)
 	private Student student;
@@ -50,11 +49,11 @@ public class StudentCourse {
 		this.id = id;
 	}
 
-	public List<Course> getCourse() {
+	public Course getCourse() {
 		return course;
 	}
 
-	public void setCourse(List<Course> course) {
+	public void setCourse(Course course) {
 		this.course = course;
 	}
 
