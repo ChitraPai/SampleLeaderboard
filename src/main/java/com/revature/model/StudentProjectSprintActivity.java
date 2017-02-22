@@ -1,7 +1,5 @@
 package com.revature.model;
 
-
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -25,10 +23,10 @@ public class StudentProjectSprintActivity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "STUDENT_PROJECT_SPRINT_ID")
+	@JoinColumn(name = "STUDENT_PROJECT_SPRINT_ID", nullable = false)
 	private StudentProjectSprint studentProjectSprintId;
 	@ManyToOne
-	@JoinColumn(name = "PROJECT_SPRINT_ACTIVITY_ID")
+	@JoinColumn(name = "PROJECT_SPRINT_ACTIVITY_ID", nullable = false)
 	private ProjectSprintActivity projectSprintActivityId;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
@@ -37,7 +35,7 @@ public class StudentProjectSprintActivity {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID")
+	@JoinColumn(name = "STATUS_ID", nullable = false)
 	private SeedStatus statusId;
 
 	public Integer getId() {

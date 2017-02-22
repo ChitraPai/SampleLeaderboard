@@ -18,11 +18,11 @@ public class ProjectSprint {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
-	@JoinColumn(name = "PROJECT_ID")
+	@JoinColumn(name = "PROJECT_ID", nullable = false)
 	private Project projectId;
-	@Column(name = "SPRINT_NAME")
+	@Column(name = "SPRINT_NAME", nullable = false)
 	private String sprintName;
-	@Column(name = "IS_ACTIVE")
+	@Column(name = "IS_ACTIVE", nullable = false)
 	private Boolean isActive = true;
 
 	public Integer getId() {

@@ -20,10 +20,10 @@ public class StudentQuiz {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "STUDENT_ID")
+	@JoinColumn(name = "STUDENT_ID", nullable = false)
 	private Student studentId;
 	@ManyToOne
-	@JoinColumn(name = "QUIZ_ID")
+	@JoinColumn(name = "QUIZ_ID", nullable = false)
 	private Quiz quizId;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.TIME)
@@ -31,8 +31,10 @@ public class StudentQuiz {
 	@Column(name = "COMPLETED_ON")
 	@Temporal(TemporalType.TIME)
 	private Time completedOn;
+	@Column(nullable = false)
+	private Integer score;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID")
+	@JoinColumn(name = "STATUS_ID", nullable = false)
 	private SeedStatus statusId;
 
 	public Integer getId() {
@@ -73,6 +75,14 @@ public class StudentQuiz {
 
 	public void setCompletedOn(Time completedOn) {
 		this.completedOn = completedOn;
+	}
+
+	public Integer getScore() {
+		return score;
+	}
+
+	public void setScore(Integer score) {
+		this.score = score;
 	}
 
 	public SeedStatus getStatusId() {

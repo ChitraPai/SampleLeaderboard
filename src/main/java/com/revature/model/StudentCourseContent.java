@@ -22,10 +22,10 @@ public class StudentCourseContent {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
-	@JoinColumn(name = "STUDENT_COURSE_ID")
+	@JoinColumn(name = "STUDENT_COURSE_ID", nullable = false)
 	private StudentCourse sudentCourseId;
 	@ManyToOne()
-	@JoinColumn(name = "COURSE_CONTENT_ID")
+	@JoinColumn(name = "COURSE_CONTENT_ID", nullable = false)
 	private CourseContent courseContentId;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
@@ -34,7 +34,7 @@ public class StudentCourseContent {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID")
+	@JoinColumn(name = "STATUS_ID", nullable = false)
 	private SeedStatus statusId;
 
 	public Integer getId() {

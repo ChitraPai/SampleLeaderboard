@@ -1,5 +1,6 @@
 package com.revature.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,11 +16,11 @@ public class StudentAccount {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@OneToOne
-	@JoinColumn(name = "STUDENT_ID", unique = true)
+	@JoinColumn(unique = true, nullable = false)
 	private Student studentId;
-
+	@Column(nullable = false)
 	private String username;
-
+	@Column(nullable = false)
 	private String password;
 
 	public Integer getId() {

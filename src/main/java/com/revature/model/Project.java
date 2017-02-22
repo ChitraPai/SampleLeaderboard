@@ -16,21 +16,22 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
-	@JoinColumn(name = "CATEGORY_ID")
+	@JoinColumn(name = "CATEGORY_ID", nullable = false)
 	private Category categoryId;
 	@ManyToOne()
-	@JoinColumn(name = "LEVEL_ID")
+	@JoinColumn(name = "LEVEL_ID", nullable = false)
 	private Level levelId;
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String name;
+	@Column(nullable = false)
 	private String description;
 	@Column(name = "DURATION_IN_MINUTES")
 	private Integer durationInMinutes;
-	@Column(name = "ENROLLMENT_POINTS")
+	@Column(name = "ENROLLMENT_POINTS", nullable = false)
 	private Integer enrollmentPoints;
-	@Column(name = "COMPLETION_POINTS")
+	@Column(name = "COMPLETION_POINTS", nullable = false)
 	private Integer completionPoints;
-	@Column(name = "IS_ACTIVE")
+	@Column(name = "IS_ACTIVE", nullable = false)
 	private Boolean isActive = true;
 
 	public Integer getId() {

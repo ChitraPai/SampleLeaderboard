@@ -15,15 +15,15 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String name;
 	@ManyToOne
-	@JoinColumn(name = "UNIVERSITY_ID")
+	@JoinColumn(name = "UNIVERSITY_ID", nullable = false)
 	private University universityId;
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String email;
 	private Long phone;
-	@Column(name = "IS_ACTIVE")
+	@Column(name = "IS_ACTIVE", nullable = false)
 	private Boolean isActive = true;
 
 	public Integer getId() {

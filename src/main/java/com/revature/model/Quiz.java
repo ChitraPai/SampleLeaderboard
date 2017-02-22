@@ -16,22 +16,22 @@ public class Quiz {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "CATEGORY_ID")
+	@JoinColumn(name = "CATEGORY_ID", nullable = false)
 	private Category categoryId;
 	@ManyToOne
-	@JoinColumn(name = "LEVEL_ID")
+	@JoinColumn(name = "LEVEL_ID", nullable = false)
 	private Level levelId;
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String name;
-	@Column(name = "DURATION_IN_MINUTES")
+	@Column(name = "DURATION_IN_MINUTES", nullable = false)
 	private Integer duration;
-	@Column(name = "NUM_OF_QUESTIONS")
+	@Column(name = "NUM_OF_QUESTIONS", nullable = false)
 	private Integer numOfQuestions;
-	@Column(name = "MAX_ATTEMPTS")
+	@Column(name = "MAX_ATTEMPTS", nullable = false)
 	private Integer maxAttempts = 1;
-	@Column(name = "IS_ANSWER_DISPLAY")
+	@Column(name = "IS_ANSWER_DISPLAY", nullable = false)
 	private Boolean isAnswerDisplay = false;
-	@Column(name = "IS_ACTIVE")
+	@Column(name = "IS_ACTIVE", nullable = false)
 	private Boolean isActive = true;
 
 	public Integer getId() {

@@ -1,4 +1,5 @@
 package com.revature.model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,20 +9,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
 @Entity
-@Table(name = "project_sprint_activities",uniqueConstraints = {
-	    @UniqueConstraint(columnNames={"PROJECT_SPRINT_ID", "VIDEO_ID"}),
-	    @UniqueConstraint(columnNames={"PROJECT_SPRINT_ID", "COURSE_ID"}),
-	    @UniqueConstraint(columnNames={"PROJECT_SPRINT_ID", "QUIZ_ID"}),
-	    @UniqueConstraint(columnNames={"PROJECT_SPRINT_ID", "ONLINE_ACTIVITY"}),
-	    @UniqueConstraint(columnNames={"PROJECT_SPRINT_ID", "OFFLINE_ACTIVITY"})
-	})
+@Table(name = "project_sprint_activities", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "PROJECT_SPRINT_ID", "VIDEO_ID" }),
+		@UniqueConstraint(columnNames = { "PROJECT_SPRINT_ID", "COURSE_ID" }),
+		@UniqueConstraint(columnNames = { "PROJECT_SPRINT_ID", "QUIZ_ID" }),
+		@UniqueConstraint(columnNames = { "PROJECT_SPRINT_ID", "ONLINE_ACTIVITY" }),
+		@UniqueConstraint(columnNames = { "PROJECT_SPRINT_ID", "OFFLINE_ACTIVITY" }) })
 public class ProjectSprintActivity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
-	@JoinColumn(name = "PROJECT_SPRINT_ID")
+	@JoinColumn(name = "PROJECT_SPRINT_ID", nullable = false)
 	private ProjectSprint projectSprintId;
 	@ManyToOne()
 	@JoinColumn(name = "VIDEO_ID")
@@ -32,13 +33,16 @@ public class ProjectSprintActivity {
 	@ManyToOne()
 	@JoinColumn(name = "QUIZ_ID")
 	private Quiz quizId;
-	@Column(name= "ONLINE_ACTIVITY")
+	@Column(name = "ONLINE_ACTIVITY")
 	private String onlineActivity;
-	@Column(name= "OFFLINE_ACTIVITY")
+	@Column(name = "OFFLINE_ACTIVITY")
 	private String offlineActivity;
+	@Column(nullable = false)
 	private String name;
-	@Column(name = "IS_ACTIVE")
-	private Boolean isActive = true;
+	@Column(name = "DURATION_IN_MINUTES")
+	private Integer durationInMinutes;
+	@Column(name = "SKILL_POINTS", nullable = false)
+	private Integer skillPoints;
 
 	public Integer getId() {
 		return id;
@@ -104,12 +108,20 @@ public class ProjectSprintActivity {
 		this.name = name;
 	}
 
-	public Boolean getIsActive() {
-		return isActive;
+	public Integer getDurationInMinutes() {
+		return durationInMinutes;
 	}
 
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+	public void setDurationInMinutes(Integer durationInMinutes) {
+		this.durationInMinutes = durationInMinutes;
+	}
+
+	public Integer getSkillPoints() {
+		return skillPoints;
+	}
+
+	public void setSkillPoints(Integer skillPoints) {
+		this.skillPoints = skillPoints;
 	}
 
 }

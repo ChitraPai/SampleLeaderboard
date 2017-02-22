@@ -13,9 +13,9 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String name;
-	@Column(name = "IS_ACTIVE")
+	@Column(name = "IS_ACTIVE", nullable = false)
 	private Boolean isActive = true;
 
 	public Integer getId() {

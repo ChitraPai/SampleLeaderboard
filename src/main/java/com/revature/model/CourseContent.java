@@ -18,15 +18,16 @@ public class CourseContent {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
-	@JoinColumn(name = "COURSE_ID")
+	@JoinColumn(name = "COURSE_ID", nullable = false)
 	private Course courseId;
 	@ManyToOne()
 	@JoinColumn(name = "VIDEO_ID")
 	private Video videoId;
 	@Column(name = "TEXT_CONTENT")
 	private String textContent;
+	@Column(nullable = false)
 	private String name;
-	@Column(name = "SKILL_POINTS")
+	@Column(name = "SKILL_POINTS", nullable = false)
 	private Integer skillPoints;
 
 	public Integer getId() {

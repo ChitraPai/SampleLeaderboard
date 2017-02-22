@@ -20,10 +20,10 @@ public class StudentProjectSprint {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "STUDENT_PROJECT_ID")
+	@JoinColumn(name = "STUDENT_PROJECT_ID", nullable = false)
 	private StudentProject studentProjectId;
 	@ManyToOne
-	@JoinColumn(name = "PROJECT_SPRINT_ID")
+	@JoinColumn(name = "PROJECT_SPRINT_ID", nullable = false)
 	private ProjectSprint projectSprintId;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
@@ -32,7 +32,7 @@ public class StudentProjectSprint {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID")
+	@JoinColumn(name = "STATUS_ID", nullable = false)
 	private SeedStatus statusId;
 
 	public Integer getId() {
