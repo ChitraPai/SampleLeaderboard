@@ -1,5 +1,7 @@
 package com.revature.model;
 
+import java.sql.Time;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.apache.tomcat.jni.Time;
 
 @Entity
 @Table(name = "student_quizes")
@@ -31,10 +32,10 @@ public class StudentQuiz {
 	@JoinColumn(name = "QUIZ_ID", nullable = false)
 	private Quiz quiz;
 	@Column(name = "STARTED_ON")
-	@Temporal(TemporalType.TIME)
+//	@Temporal(TemporalType.TIME)
 	private Time startedOn;
 	@Column(name = "COMPLETED_ON")
-	@Temporal(TemporalType.TIME)
+//	@Temporal(TemporalType.TIME)
 	private Time completedOn;
 	@Column(nullable = false)
 	private Integer score;

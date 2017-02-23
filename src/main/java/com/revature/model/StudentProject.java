@@ -1,5 +1,7 @@
 package com.revature.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +14,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
-import org.apache.tomcat.jni.Time;
 
 @Entity
 @Table(name = "student_projects", uniqueConstraints = {
@@ -33,11 +34,11 @@ public class StudentProject {
 	@JoinColumn(name = "PROJECT_ID", nullable = false)
 	private Project project;
 	@Column(name = "STARTED_ON")
-	@Temporal(TemporalType.TIME)
-	private Time startedOn;
+	@Temporal(TemporalType.DATE)
+	private Date startedOn;
 	@Column(name = "COMPLETED_ON")
-	@Temporal(TemporalType.TIME)
-	private Time completedOn;
+	@Temporal(TemporalType.DATE)
+	private Date completedOn;
 	@ManyToOne
 	@JoinColumn(name = "STATUS_ID")
 	private SeedStatus status;
@@ -66,19 +67,19 @@ public class StudentProject {
 		this.project = project;
 	}
 
-	public Time getStartedOn() {
+	public Date getStartedOn() {
 		return startedOn;
 	}
 
-	public void setStartedOn(Time startedOn) {
+	public void setStartedOn(Date startedOn) {
 		this.startedOn = startedOn;
 	}
 
-	public Time getCompletedOn() {
+	public Date getCompletedOn() {
 		return completedOn;
 	}
 
-	public void setCompletedOn(Time completedOn) {
+	public void setCompletedOn(Date completedOn) {
 		this.completedOn = completedOn;
 	}
 

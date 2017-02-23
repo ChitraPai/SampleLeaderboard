@@ -13,9 +13,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "student_audit_details")
-public class StudentAuditDetails {
+public class StudentAuditDetail {
 
-	public StudentAuditDetails() {
+	public StudentAuditDetail() {
 
 	}
 
@@ -25,8 +25,8 @@ public class StudentAuditDetails {
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_ID", nullable = false)
 	private Student student;
-	@Column(name = "LOGIN_ACTIVITY", nullable = false)
-	private String loginActivity;
+	@Column(name = "LOGIN_ACTIVITY_ID", nullable = false)
+	private LoginActivity loginActivity;
 	@Column(name = "ACTIVITY_TIMESTAMP", nullable = false)
 	private Timestamp activityTimestamp;
 	@Column(name = "IS_SUCCESS")
@@ -48,11 +48,11 @@ public class StudentAuditDetails {
 		this.student = student;
 	}
 
-	public String getLoginActivity() {
+	public LoginActivity getLoginActivity() {
 		return loginActivity;
 	}
 
-	public void setLoginActivity(String loginActivity) {
+	public void setLoginActivity(LoginActivity loginActivity) {
 		this.loginActivity = loginActivity;
 	}
 

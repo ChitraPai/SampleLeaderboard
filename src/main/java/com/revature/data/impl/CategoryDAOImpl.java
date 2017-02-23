@@ -33,8 +33,8 @@ public class CategoryDAOImpl implements CategoryDAO {
   public List<Category> getAllCategories() throws DataServiceException {
     List<Category> categories = null;
     try {
-      StringBuilder sb = new StringBuilder("FROM Category c where c.isActive=true");
-      categories = dataRetriver.retrieveByHQL(sb.toString());
+      StringBuilder sb = new StringBuilder("select * from categories");
+      categories = dataRetriver.retrieveBySQL(sb.toString());
       logger.info("Categories data retrieval success..");
     } catch (DataAccessException e) {
       logger.error(e.getMessage(), e);
