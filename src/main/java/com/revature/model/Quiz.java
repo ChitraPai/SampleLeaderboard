@@ -36,6 +36,8 @@ public class Quiz {
 	private Integer maxAttempts = 1;
 	@Column(name = "IS_ANSWER_DISPLAY")
 	private Boolean isAnswerDisplay = false;
+	@Column(name = "SKILL_POINTS", nullable = false)
+	private Integer skillPoints;
 	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 	public Integer getId() {

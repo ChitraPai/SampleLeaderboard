@@ -25,7 +25,8 @@ public class StudentAuditDetail {
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_ID", nullable = false)
 	private Student student;
-	@Column(name = "LOGIN_ACTIVITY_ID", nullable = false)
+	@ManyToOne
+	@JoinColumn(name = "LOGIN_ACTIVITY_ID", nullable = false)
 	private LoginActivity loginActivity;
 	@Column(name = "ACTIVITY_TIMESTAMP", nullable = false)
 	private Timestamp activityTimestamp;
