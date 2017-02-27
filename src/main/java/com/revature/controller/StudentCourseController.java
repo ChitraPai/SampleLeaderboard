@@ -12,7 +12,7 @@ import com.revature.controller.exception.InvalidInputException;
 import com.revature.model.StudentCourse;
 
 @RestController
-//@RequestMapping("/")
+@RequestMapping("/course")
 
 public class StudentCourseController {
 	private static Logger logger = Logger.getLogger(CategoryController.class);
@@ -20,7 +20,7 @@ public class StudentCourseController {
 	  @Autowired
 	  private StudentCourseService studentCourseService;
 
-	  @RequestMapping("/courses")
+	  @RequestMapping("/all/student/course")
 	  public List<StudentCourse> getActiveStudentCourseController() {
 	    List<StudentCourse> studentcourses = null;
 	    try {
@@ -36,7 +36,7 @@ public class StudentCourseController {
 	    }
 	    return studentcourses;
 	  }
-	  @RequestMapping("/courseskillpoints")
+	  @RequestMapping("/skill/points")
 	  public List<StudentCourse> getActiveStudentCourseSkillPointsController() {
 	    List<StudentCourse> studentcourses = null;
 	    try {
@@ -52,7 +52,7 @@ public class StudentCourseController {
 	    }
 	    return studentcourses;
 	  }
-	  @RequestMapping("/courseactivitypoints")
+	  @RequestMapping("/activity/points")
 	  public List<StudentCourse> getActiveStudentCourseAtivityPointsController() {
 	    List<StudentCourse> studentcourses = null;
 	    try {
@@ -68,7 +68,7 @@ public class StudentCourseController {
 	    }
 	    return studentcourses;
 	  }
-	  @RequestMapping("/coursehoursspent")
+	  @RequestMapping("/hours/spent")
 	  public List<StudentCourse> getActiveStudentCourseHoursSpentController() {
 	    List<StudentCourse> studentcourses = null;
 	    try {
@@ -84,7 +84,7 @@ public class StudentCourseController {
 	    }
 	    return studentcourses;
 	  }
-	  @RequestMapping("/coursepercentage")
+	  @RequestMapping("/percentage")
 	  public List<StudentCourse> getActiveStudentPercentageController() {
 	    List<StudentCourse> studentcourses = null;
 	    try {
@@ -100,7 +100,7 @@ public class StudentCourseController {
 	    }
 	    return studentcourses;
 	  }
-	  @RequestMapping("/courseskillpointsbyid/{studentId}")
+	  @RequestMapping("/skill/points/id/{studentId}")
 	  public List<StudentCourse> getActiveStudentCourseSkillPointsByIdController(@PathVariable("studentId") Integer studentId) {
 	    List<StudentCourse> studentcourses = null;
 	    try {

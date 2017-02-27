@@ -14,13 +14,13 @@ import com.revature.controller.exception.InvalidInputException;
 import com.revature.model.StudentProject;
 
 @RestController
-//@RequestMapping("/")
+@RequestMapping("/projects")
 public class StudentProjectController {
 	private static Logger logger = Logger.getLogger(CategoryController.class);
 
 	@Autowired
 	private StudentProjectService studentProjectService;
-	@RequestMapping("/projects")
+	@RequestMapping("/all/student/projects")
 	public List<StudentProject> getActiveStudentProjectController() {
 		List<StudentProject> studentProjects = null;
 		try {
@@ -37,7 +37,7 @@ public class StudentProjectController {
 		return studentProjects;
 	}
 
-	@RequestMapping("/projectskillpoints")
+	@RequestMapping("/skill/points")
 	public List<StudentProject> getActiveStudentProjectSkillPointsController() {
 		List<StudentProject> studentProjects = null;
 		try {
@@ -53,7 +53,7 @@ public class StudentProjectController {
 		}
 		return studentProjects;
 	}
-	@RequestMapping("/projectactivitypoints")
+	@RequestMapping("/activity/points")
 	public List<StudentProject> getActiveStudentProjectActivityPointsController() {
 		List<StudentProject> studentProjects = null;
 		try {
