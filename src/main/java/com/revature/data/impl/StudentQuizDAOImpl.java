@@ -34,7 +34,7 @@ public class StudentQuizDAOImpl implements StudentQuizDAO {
 		try {
 			StringBuilder sb = new StringBuilder("select * from student_quizes");
 			studentQuizzes = dataRetriver.retrieveBySQL(sb.toString());
-			logger.info("Categories data retrieval success..");
+			logger.info("Student quizzes data retrieval success..");
 		} catch (DataAccessException e) {
 			logger.error(e.getMessage(), e);
 			throw new DataServiceException(DataUtils.getPropertyMessage("data_retrieval_fail"), e);
@@ -48,7 +48,7 @@ public class StudentQuizDAOImpl implements StudentQuizDAO {
 		try {
 			StringBuilder sb = new StringBuilder("select * from vw_student_quiz_skill_points");
 			studentQuizzes = dataRetriver.retrieveBySQL(sb.toString());
-			logger.info("Categories data retrieval success..");
+			logger.info("Student Quizzes data retrieval success..");
 		} catch (DataAccessException e) {
 			logger.error(e.getMessage(), e);
 			throw new DataServiceException(DataUtils.getPropertyMessage("data_retrieval_fail"), e);
