@@ -36,4 +36,16 @@ public class StudentQuizServiceImpl implements StudentQuizService {
 		return studentQuizzes;
 	}
 
+	@Override
+	public List<StudentQuiz> getStudentQuizSkillPointsById(Integer studentId) throws BusinessServiceException {
+		List<StudentQuiz> studentQuizzes = null;
+		try {
+			studentQuizzes = studentQuizDAO.getStudentQuizSkillPointsById(studentId);
+			logger.info("Student Quiz Skill retrieved successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentQuizzes;
+	}
 }

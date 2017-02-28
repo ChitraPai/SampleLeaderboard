@@ -16,5 +16,8 @@ public interface StudentQuizService {
 	List<StudentQuiz> getAllStudentQuiz() throws BusinessServiceException;
 
 	List<StudentQuiz> getAllStudentQuizSkillPoints() throws BusinessServiceException;
+	
+	List<StudentQuiz> getStudentQuizSkillPointsById(Integer studentId) throws BusinessServiceException;
+
 
 }

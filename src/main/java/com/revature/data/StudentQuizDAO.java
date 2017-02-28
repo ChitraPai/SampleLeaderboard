@@ -18,4 +18,6 @@ public interface StudentQuizDAO {
 	public List<StudentQuiz> getAllStudentQuiz() throws DataServiceException;
 
 	public List<StudentQuiz> getAllStudentQuizSkillPoints() throws DataServiceException;
+	public List<StudentQuiz> getStudentQuizSkillPointsById(Integer studentId) throws DataServiceException;
+
 }

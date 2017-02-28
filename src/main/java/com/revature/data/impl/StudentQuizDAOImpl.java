@@ -56,4 +56,18 @@ public class StudentQuizDAOImpl implements StudentQuizDAO {
 		return studentQuizzes;
 	}
 
+	@Override
+	public List<StudentQuiz> getStudentQuizSkillPointsById(Integer studentId) throws DataServiceException {
+		List<StudentQuiz> studentQuizzes = null;
+		try {
+			StringBuilder sb = new StringBuilder("select name,skill_points from vw_student_quiz_skill_points where student_id="+studentId);
+			studentQuizzes = dataRetriver.retrieveBySQL(sb.toString());
+			logger.info("Categories data retrieval success..");
+		} catch (DataAccessException e) {
+			logger.error(e.getMessage(), e);
+			throw new DataServiceException(DataUtils.getPropertyMessage("data_retrieval_fail"), e);
+		}
+		return studentQuizzes;
+	}
+
 }

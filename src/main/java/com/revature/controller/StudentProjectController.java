@@ -20,6 +20,7 @@ public class StudentProjectController {
 
 	@Autowired
 	private StudentProjectService studentProjectService;
+
 	@RequestMapping("/all/student/projects")
 	public List<StudentProject> getActiveStudentProjectController() {
 		List<StudentProject> studentProjects = null;
@@ -53,6 +54,7 @@ public class StudentProjectController {
 		}
 		return studentProjects;
 	}
+
 	@RequestMapping("/activity/points")
 	public List<StudentProject> getActiveStudentProjectActivityPointsController() {
 		List<StudentProject> studentProjects = null;
