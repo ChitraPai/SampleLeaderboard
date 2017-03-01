@@ -1,4 +1,5 @@
 package com.revature.controller;
+
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,104 +18,111 @@ import com.revature.model.StudentCourse;
 public class StudentCourseController {
 	private static Logger logger = Logger.getLogger(CategoryController.class);
 
-	  @Autowired
-	  private StudentCourseService studentCourseService;
+	@Autowired
+	private StudentCourseService studentCourseService;
 
-	  @RequestMapping("/all/student/course")
-	  public List<StudentCourse> getActiveStudentCourseController() {
-	    List<StudentCourse> studentcourses = null;
-	    try {
-	      logger.info("Getting the student courses data...");
-	      studentcourses = studentCourseService.getAllStudentCourses();
-	      logger.info("student courses data retrieval success.");
-	    } catch (BusinessServiceException e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InvalidInputException(e.getMessage(), e);
-	    } catch (Exception e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InternalException("System has some issue...", e);
-	    }
-	    return studentcourses;
-	  }
-	  @RequestMapping("/skill/points")
-	  public List<StudentCourse> getActiveStudentCourseSkillPointsController() {
-	    List<StudentCourse> studentcourses = null;
-	    try {
-	      logger.info("Getting the student courses data...");
-	      studentcourses = studentCourseService.getAllStudentCourseSkillPoints();
-	      logger.info("student courses data retrieval success.");
-	    } catch (BusinessServiceException e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InvalidInputException(e.getMessage(), e);
-	    } catch (Exception e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InternalException("System has some issue...", e);
-	    }
-	    return studentcourses;
-	  }
-	  @RequestMapping("/activity/points")
-	  public List<StudentCourse> getActiveStudentCourseAtivityPointsController() {
-	    List<StudentCourse> studentcourses = null;
-	    try {
-	      logger.info("Getting the student courses data...");
-	      studentcourses = studentCourseService.getAllStudentCourseActivityPoints();
-	      logger.info("student courses data retrieval success.");
-	    } catch (BusinessServiceException e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InvalidInputException(e.getMessage(), e);
-	    } catch (Exception e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InternalException("System has some issue...", e);
-	    }
-	    return studentcourses;
-	  }
-	  @RequestMapping("/hours/spent")
-	  public List<StudentCourse> getActiveStudentCourseHoursSpentController() {
-	    List<StudentCourse> studentcourses = null;
-	    try {
-	      logger.info("Getting the student courses data...");
-	      studentcourses = studentCourseService.getAllStudentCourseHoursSpent();
-	      logger.info("student courses data retrieval success.");
-	    } catch (BusinessServiceException e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InvalidInputException(e.getMessage(), e);
-	    } catch (Exception e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InternalException("System has some issue...", e);
-	    }
-	    return studentcourses;
-	  }
-	  @RequestMapping("/percentage")
-	  public List<StudentCourse> getActiveStudentPercentageController() {
-	    List<StudentCourse> studentcourses = null;
-	    try {
-	      logger.info("Getting the student courses data...");
-	      studentcourses = studentCourseService.getAllStudentCoursePercentage();
-	      logger.info("student courses data retrieval success.");
-	    } catch (BusinessServiceException e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InvalidInputException(e.getMessage(), e);
-	    } catch (Exception e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InternalException("System has some issue...", e);
-	    }
-	    return studentcourses;
-	  }
-	  @RequestMapping("/skill/points/id/{studentId}")
-	  public List<StudentCourse> getActiveStudentCourseSkillPointsByIdController(@PathVariable("studentId") Integer studentId) {
-	    List<StudentCourse> studentcourses = null;
-	    try {
-	      logger.info("Getting the student courses data...");
-	      studentcourses = studentCourseService.getCourseSkillPointsByStudentId(studentId);
-	      logger.info("student courses data retrieval success.");
-	    } catch (BusinessServiceException e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InvalidInputException(e.getMessage(), e);
-	    } catch (Exception e) {
-	      logger.error(e.getMessage(), e);
-	      throw new InternalException("System has some issue...", e);
-	    }
-	    return studentcourses;
-	  }
+	@RequestMapping("/all/student/course")
+	public List<StudentCourse> getActiveStudentCourseController() {
+		List<StudentCourse> studentcourses = null;
+		try {
+			logger.info("Getting the student courses data...");
+			studentcourses = studentCourseService.getAllStudentCourses();
+			logger.info("student courses data retrieval success.");
+		} catch (BusinessServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new InvalidInputException(e.getMessage(), e);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new InternalException("System has some issue...", e);
+		}
+		return studentcourses;
+	}
+
+	@RequestMapping("/skill/points")
+	public List<StudentCourse> getActiveStudentCourseSkillPointsController() {
+		List<StudentCourse> studentcourses = null;
+		try {
+			logger.info("Getting the student courses data...");
+			studentcourses = studentCourseService.getAllStudentCourseSkillPoints();
+			logger.info("student courses data retrieval success.");
+		} catch (BusinessServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new InvalidInputException(e.getMessage(), e);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new InternalException("System has some issue...", e);
+		}
+		return studentcourses;
+	}
+
+	@RequestMapping("/activity/points")
+	public List<StudentCourse> getActiveStudentCourseAtivityPointsController() {
+		List<StudentCourse> studentcourses = null;
+		try {
+			logger.info("Getting the student courses data...");
+			studentcourses = studentCourseService.getAllStudentCourseActivityPoints();
+			logger.info("student courses data retrieval success.");
+		} catch (BusinessServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new InvalidInputException(e.getMessage(), e);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new InternalException("System has some issue...", e);
+		}
+		return studentcourses;
+	}
+
+	@RequestMapping("/hours/spent/{studentId}")
+	public List<StudentCourse> getActiveStudentCourseHoursSpentController(
+			@PathVariable("studentId") Integer studentId) {
+		List<StudentCourse> studentcourses = null;
+		try {
+			logger.info("Getting the student courses data...");
+			studentcourses = studentCourseService.getAllStudentCourseHoursSpent(studentId);
+			logger.info("student courses data retrieval success.");
+		} catch (BusinessServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new InvalidInputException(e.getMessage(), e);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new InternalException("System has some issue...", e);
+		}
+		return studentcourses;
+	}
+
+	@RequestMapping("/percentage/{studentId}")
+	public List<StudentCourse> getActiveStudentPercentageController(@PathVariable("studentId") Integer studentId) {
+		List<StudentCourse> studentcourses = null;
+		try {
+			logger.info("Getting the student courses data...");
+			studentcourses = studentCourseService.getAllStudentCoursePercentage(studentId);
+			logger.info("student courses data retrieval success.");
+		} catch (BusinessServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new InvalidInputException(e.getMessage(), e);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new InternalException("System has some issue...", e);
+		}
+		return studentcourses;
+	}
+
+	@RequestMapping("/skill/points/{studentId}")
+	public List<StudentCourse> getActiveStudentCourseSkillPointsByIdController(
+			@PathVariable("studentId") Integer studentId) {
+		List<StudentCourse> studentcourses = null;
+		try {
+			logger.info("Getting the student courses data...");
+			studentcourses = studentCourseService.getAllStudentCourseActivityPointsById(studentId);
+			logger.info("student courses data retrieval success.");
+		} catch (BusinessServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new InvalidInputException(e.getMessage(), e);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new InternalException("System has some issue...", e);
+		}
+		return studentcourses;
+	}
 
 }

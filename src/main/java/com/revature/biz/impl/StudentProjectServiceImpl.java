@@ -57,4 +57,30 @@ public class StudentProjectServiceImpl implements StudentProjectService {
 		}
 		return studentProjects;
 	}
+
+	@Override
+	public List<StudentProject> getStudentProjectSkillPoints(Integer studentId) throws BusinessServiceException {
+		List<StudentProject> studentProjects = null;
+		try {
+			studentProjects = studentProjectDAO.getStudentProjectSkillPointsById(studentId);
+			logger.info("Student Project Skill Points retrieved successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentProjects;
+	}
+
+	@Override
+	public List<StudentProject> getStudentProjectActivityPoints(Integer studentId) throws BusinessServiceException {
+		List<StudentProject> studentProjects = null;
+		try {
+			studentProjects = studentProjectDAO.getStudentProjectActivityPointsById(studentId);
+			logger.info("Student Project Activity Points retrieved successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentProjects;
+	}
 }

@@ -18,5 +18,9 @@ public interface StudentProjectService {
 	List<StudentProject> getAllStudentProjectSkillPoints() throws BusinessServiceException;
 
 	List<StudentProject> getAllStudentProjectActivityPoints() throws BusinessServiceException;
+	List<StudentProject> getStudentProjectSkillPoints(Integer studentId) throws BusinessServiceException;
+	List<StudentProject> getStudentProjectActivityPoints(Integer studentId) throws BusinessServiceException;
+
+
 
 }

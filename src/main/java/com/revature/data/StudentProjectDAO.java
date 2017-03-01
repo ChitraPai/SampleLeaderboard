@@ -20,4 +20,8 @@ public interface StudentProjectDAO {
 
 	public List<StudentProject> getAllStudentProjectActivityPoints() throws DataServiceException;
 
+	public List<StudentProject> getStudentProjectActivityPointsById(Integer studentId) throws DataServiceException;
+
+	public List<StudentProject> getStudentProjectSkillPointsById(Integer studentId) throws DataServiceException;
+
 }
