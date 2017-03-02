@@ -7,11 +7,13 @@ import com.revature.model.StudentAccount;
 
 public interface StudentAccountService {
 	/**
-	 * Used to get all the student accounts.
+	 * Used to do login activities.
 	 * 
-	 * @return student accounts
 	 * @throws BusinessServiceException
 	 *             if any business error occurs
 	 */
-	List<StudentAccount> getAllStudentPoints() throws BusinessServiceException;
+	public List<StudentAccount> Login(String emailId, String password) throws BusinessServiceException;
+
+	public List<StudentAccount> getActivityPoints(Integer studentId) throws BusinessServiceException;
+
 }

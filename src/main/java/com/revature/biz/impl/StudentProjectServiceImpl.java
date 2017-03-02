@@ -59,7 +59,7 @@ public class StudentProjectServiceImpl implements StudentProjectService {
 	}
 
 	@Override
-	public List<StudentProject> getStudentProjectSkillPoints(Integer studentId) throws BusinessServiceException {
+	public List<StudentProject> getStudentProjectSkillPointsByStudentId(Integer studentId) throws BusinessServiceException {
 		List<StudentProject> studentProjects = null;
 		try {
 			studentProjects = studentProjectDAO.getStudentProjectSkillPointsById(studentId);
@@ -72,7 +72,7 @@ public class StudentProjectServiceImpl implements StudentProjectService {
 	}
 
 	@Override
-	public List<StudentProject> getStudentProjectActivityPoints(Integer studentId) throws BusinessServiceException {
+	public List<StudentProject> getStudentProjectActivityPointsByStudentId(Integer studentId) throws BusinessServiceException {
 		List<StudentProject> studentProjects = null;
 		try {
 			studentProjects = studentProjectDAO.getStudentProjectActivityPointsById(studentId);

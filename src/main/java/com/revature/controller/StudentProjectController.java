@@ -79,7 +79,7 @@ public class StudentProjectController {
 		List<StudentProject> studentProjects = null;
 		try {
 			logger.info("Getting the student projects data...");
-			studentProjects = studentProjectService.getStudentProjectActivityPoints(studentId);
+			studentProjects = studentProjectService.getStudentProjectActivityPointsByStudentId(studentId);
 			logger.info("student projects data retrieval success.");
 		} catch (BusinessServiceException e) {
 			logger.error(e.getMessage(), e);
@@ -96,7 +96,7 @@ public class StudentProjectController {
 		List<StudentProject> studentProjects = null;
 		try {
 			logger.info("Getting the student projects data...");
-			studentProjects = studentProjectService.getStudentProjectSkillPoints(studentId);
+			studentProjects = studentProjectService.getStudentProjectSkillPointsByStudentId(studentId);
 			logger.info("student projects data retrieval success.");
 		} catch (BusinessServiceException e) {
 			logger.error(e.getMessage(), e);
