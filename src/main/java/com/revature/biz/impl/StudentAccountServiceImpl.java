@@ -34,10 +34,38 @@ public class StudentAccountServiceImpl implements StudentAccountService {
 	}
 
 	@Override
-	public List<StudentAccount> getActivityPoints(Integer studentId) throws BusinessServiceException {
+	public List<StudentAccount> getActivityPointsByStudentId(Integer studentId) throws BusinessServiceException {
 		List<StudentAccount> studentAccount = null;
 		try {
 			studentAccount = studentaccountDAO.getActivityPointsByStudentId(studentId);
+			logger.info("student activity points data retrieved successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentAccount;
+
+	}
+
+	@Override
+	public List<StudentAccount> getTotalActivityPointsByStudentId(Integer studentId) throws BusinessServiceException {
+		List<StudentAccount> studentAccount = null;
+		try {
+			studentAccount = studentaccountDAO.getTotalActivityPointsByStudentId(studentId);
+			logger.info("student activity points data retrieved successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentAccount;
+
+	}
+
+	@Override
+	public List<StudentAccount> getTotalSkillPointsByStudentId(Integer studentId) throws BusinessServiceException {
+		List<StudentAccount> studentAccount = null;
+		try {
+			studentAccount = studentaccountDAO.getTotalSkillPointsByStudentId(studentId);
 			logger.info("student activity points data retrieved successfully");
 		} catch (DataServiceException e) {
 			logger.error(e.getMessage(), e);

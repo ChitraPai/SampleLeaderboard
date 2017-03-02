@@ -14,6 +14,10 @@ public interface StudentAccountService {
 	 */
 	public List<StudentAccount> Login(String emailId, String password) throws BusinessServiceException;
 
-	public List<StudentAccount> getActivityPoints(Integer studentId) throws BusinessServiceException;
+	public List<StudentAccount> getActivityPointsByStudentId(Integer studentId) throws BusinessServiceException;
+
+	public List<StudentAccount> getTotalActivityPointsByStudentId(Integer studentId) throws BusinessServiceException;
+
+	public List<StudentAccount> getTotalSkillPointsByStudentId(Integer studentId) throws BusinessServiceException;
 
 }

@@ -61,4 +61,39 @@ public class StudentAccountDAOImpl implements StudentAccountDAO {
 
 	}
 
+	@Override
+	public List<StudentAccount> getTotalActivityPointsByStudentId(Integer studentId) throws DataServiceException {
+		List<StudentAccount> studentAccount = null;
+		try {
+			StringBuilder sb = new StringBuilder(
+					"select total_activity_points from vw_final_student_activity_points where student_id="
+							+ studentId);
+			studentAccount = dataRetriver.retrieveBySQLJSON(sb.toString());
+			logger.info("Student activity points data retrieval success..");
+		} catch (DataAccessException e) {
+			logger.error(e.getMessage(), e);
+			throw new DataServiceException(DataUtils.getPropertyMessage("data_retrieval_fail"), e);
+		}
+		return studentAccount;
+	}
+
+	@Override
+	public List<StudentAccount> getTotalSkillPointsByStudentId(Integer studentId) throws DataServiceException {
+		List<StudentAccount> studentAccount = null;
+		try {
+			StringBuilder sb = new StringBuilder(
+					"select total_skill_points from vw_final_student_skill_points where student_id="
+							+ studentId);
+			studentAccount = dataRetriver.retrieveBySQLJSON(sb.toString());
+			logger.info("Student activity points data retrieval success..");
+		} catch (DataAccessException e) {
+			logger.error(e.getMessage(), e);
+			throw new DataServiceException(DataUtils.getPropertyMessage("data_retrieval_fail"), e);
+		}
+		return studentAccount;
+	}
+
+	
+	
+	
 }
